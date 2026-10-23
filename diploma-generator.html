@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diploma Generator | Institute for Peripatetic Studies</title>
+  <meta name="description" content="Generate your Licentiate of Peripatetic Studies diploma and formal letter of conferral.">
+  <link rel="icon" href="resources/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* Generator-page-specific overrides */
+    .generator-intro {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 3rem 2rem 0;
+    }
+    .generator-intro p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      max-width: 680px;
+    }
+    @media (max-width: 760px) {
+      .generator-layout { padding: 2rem 1.25rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand" aria-label="Institute for Peripatetic Studies — Home">
+        <img src="resources/images/favicon.png" alt="" class="nav-brand-icon" aria-hidden="true">
+        <span class="nav-brand-name">Institute for<br>Peripatetic Studies</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="academic-affairs.html">Academic Affairs</a></li>
+        <li><a href="diploma-generator.html" aria-current="page">Diploma Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <header class="page-header">
+      <p class="page-header-eyebrow">Licentiate of Peripatetic Studies</p>
+      <h1 class="page-header-title">Diploma Generator</h1>
+      <p class="page-header-sub">Enter your details and print your diploma &amp; letter of conferral</p>
+    </header>
+
+    <div class="generator-intro no-print">
+      <p>
+        Complete the form below to generate your Licentiate of Peripatetic Studies diploma
+        and its accompanying letter of conferral. Both documents will be produced together
+        and may be printed or saved as a PDF through your browser's native print dialog.
+        The diploma prints in landscape orientation; the letter in portrait. No information
+        is stored or transmitted.
+      </p>
+    </div>
+
+    <div class="generator-layout">
+
+      <!-- ── Form Panel ── -->
+      <aside class="form-panel no-print" aria-label="Diploma details">
+        <h2 class="form-panel-heading">Your Details</h2>
+
+        <div class="form-group">
+          <label class="form-label" for="recipient-name">Recipient&#8217;s Full Name</label>
+          <input
+            class="form-input"
+            type="text"
+            id="recipient-name"
+            name="recipient-name"
+            placeholder="e.g. Margaret A. Wanderer"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="100"
+            aria-required="true"
+            aria-describedby="name-validation name-hint">
+          <p class="form-hint" id="name-hint">Enter the name as it should appear on the diploma.</p>
+          <p class="validation-msg" id="name-validation" role="alert">Please enter a recipient name before printing.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="conferral-date">Date of Conferral</label>
+          <input
+            class="form-input"
+            type="date"
+            id="conferral-date"
+            name="conferral-date"
+            aria-describedby="date-hint">
+          <p class="form-hint" id="date-hint">Defaults to today&#8217;s date. Edit if needed.</p>
+        </div>
+
+        <button class="print-btn" id="print-btn" disabled aria-label="Print diploma and letter of conferral">
+          &#128438;&nbsp; Print Both Documents
+        </button>
+        <p class="print-note">Opens your browser&#8217;s print dialog. Choose &#8220;Save as PDF&#8221; to save digitally.</p>
+      </aside>
+
+      <!-- ── Preview Panel ── -->
+      <div class="preview-area" aria-label="Document preview">
+
+        <!-- Diploma preview -->
+        <p class="preview-panel-label no-print" aria-hidden="true">Preview — L.P.S. Diploma (Landscape)</p>
+        <div class="preview-wrap" id="diploma-wrap" aria-label="Diploma preview">
+          <!-- ══ DIPLOMA DOCUMENT ══ -->
+          <div class="diploma-doc parchment-bg preview-doc" id="diploma-doc" role="img" aria-label="Licentiate of Peripatetic Studies Diploma">
+            <!-- Outer border with inner hairline handled in CSS via ::before / ::after -->
+            <div class="diploma-border">
+              <span class="diploma-corner diploma-corner--tl" aria-hidden="true">&#10022;</span>
+              <span class="diploma-corner diploma-corner--tr" aria-hidden="true">&#10022;</span>
+              <span class="diploma-corner diploma-corner--bl" aria-hidden="true">&#10022;</span>
+              <span class="diploma-corner diploma-corner--br" aria-hidden="true">&#10022;</span>
+
+              <p class="diploma-institution">Institute for Peripatetic Studies</p>
+              <p class="diploma-collegium">Collegium Itinerantium</p>
+
+              <img src="resources/images/Seal.png"
+                   alt="Seal of the Institute for Peripatetic Studies"
+                   class="diploma-seal-img">
+
+              <hr class="diploma-rule" aria-hidden="true">
+
+              <p class="diploma-opening">Be it known to all persons of learning and goodwill</p>
+
+              <p class="diploma-preamble">
+                The Institute for Peripatetic Studies, Collegium Itinerantium, by the authority
+                vested in its Founding Director, and in recognition of engagement with the world
+                through movement, observation, and the honest pursuit of place-based knowledge,
+                does hereby confer upon
+              </p>
+
+              <p class="diploma-recipient" id="diploma-recipient">Your Name</p>
+
+              <p class="diploma-degree-confers">the degree of</p>
+              <p class="diploma-degree-name">Licentiate of Peripatetic Studies</p>
+              <p class="diploma-degree-abbr">(L.P.S.)</p>
+
+              <p class="diploma-postamble">
+                with all the rights, privileges, and wandering liberties pertaining thereunto,
+                including but not limited to the taking of unexpected detours, the consulting
+                of unreasonably large maps, and the earnest discussion of landscapes
+                with anyone who will listen.
+              </p>
+
+              <hr class="diploma-rule" aria-hidden="true">
+
+              <div class="diploma-footer">
+                <div class="diploma-date-block">
+                  <p class="diploma-date-label">Given under our hand and seal</p>
+                  <p class="diploma-date-value" id="diploma-date">the First Day of January, in the Year Two Thousand Twenty-Six</p>
+                </div>
+                <p class="diploma-motto"><em>Solvitur Ambulando</em></p>
+                <div class="diploma-sig-block">
+                  <p class="diploma-sig-name">Bryan Johns</p>
+                  <div class="diploma-sig-line" aria-hidden="true"></div>
+                  <p class="diploma-sig-title">Founding Director</p>
+                  <p class="diploma-sig-title">Institute for Peripatetic Studies</p>
+                </div>
+              </div>
+
+            </div><!-- /.diploma-border -->
+          </div><!-- /#diploma-doc -->
+        </div><!-- /#diploma-wrap -->
+
+        <!-- Letter preview -->
+        <p class="preview-panel-label no-print" aria-hidden="true" style="margin-top:2.5rem;">Preview — Letter of Conferral (Portrait)</p>
+        <div class="preview-wrap" id="letter-wrap" aria-label="Letter of conferral preview">
+          <!-- ══ LETTER DOCUMENT ══ -->
+          <div class="letter-doc preview-doc" id="letter-doc" role="img" aria-label="Letter of Conferral">
+
+            <header class="letter-header">
+              <img src="resources/images/Seal.png"
+                   alt="Seal of the Institute for Peripatetic Studies"
+                   class="letter-header-seal">
+              <div class="letter-header-text">
+                <p class="letter-header-institution">Institute for Peripatetic Studies</p>
+                <p class="letter-header-collegium">Collegium Itinerantium</p>
+                <p class="letter-header-motto"><em>Solvitur Ambulando</em></p>
+              </div>
+            </header>
+
+            <p class="letter-date" id="letter-date">January 1, 2026</p>
+
+            <p class="letter-salutation" id="letter-salutation">Dear [Recipient],</p>
+
+            <div class="letter-body">
+              <p>
+                It is with due ceremony and genuine satisfaction that I write to confirm
+                that the Institute for Peripatetic Studies has this day conferred upon
+                <strong id="letter-name-body">[Recipient]</strong> the degree of
+                <span class="letter-degree-highlight">Licentiate of Peripatetic Studies</span>
+                <span class="letter-degree-highlight">(L.P.S.)</span>.
+              </p>
+              <p>
+                This distinction is awarded in recognition of your engagement with the world
+                through movement, observation, and the pursuit of place-based knowledge. The
+                Institute takes the view that such engagement — wherever it has led you,
+                however circuitously, and regardless of whether you arrived where you intended —
+                constitutes a meaningful contribution to the peripatetic tradition.
+              </p>
+              <p>
+                Please receive your diploma and this letter as formal documentation of the
+                distinction conferred. The Institute encourages you to display them, discuss
+                them freely, and continue the ambulatory inquiry that earned them. The path
+                ahead remains, as always, the more interesting direction.
+              </p>
+              <p>
+                The Institute notes, for completeness, that the Licentiate of Peripatetic
+                Studies is a self-conferred, non-accredited ceremonial distinction. It does
+                not qualify the holder for graduate study, professional licensure, or
+                employment. It does qualify the holder for an enhanced sense of intellectual
+                purpose when walking somewhere interesting, and the Institute considers
+                this the more valuable endowment.
+              </p>
+            </div>
+
+            <div class="letter-closing">
+              <p class="letter-valediction">Yours sincerely,</p>
+              <p class="letter-sig-name">Bryan Johns</p>
+              <div class="letter-sig-line" aria-hidden="true"></div>
+              <p class="letter-sig-title">Bryan Johns</p>
+              <p class="letter-sig-title">Founding Director</p>
+              <p class="letter-sig-title">Doctor of Peripatetic Studies</p>
+              <p class="letter-sig-title">Institute for Peripatetic Studies</p>
+            </div>
+
+            <div class="letter-footer-rule">
+              <span class="letter-footer-motto"><em>Solvitur Ambulando</em> &nbsp;&#183;&nbsp; Institute for Peripatetic Studies &nbsp;&#183;&nbsp; Collegium Itinerantium</span>
+            </div>
+
+          </div><!-- /#letter-doc -->
+        </div><!-- /#letter-wrap -->
+
+      </div><!-- /.preview-area -->
+
+    </div><!-- /.generator-layout -->
+
+  </main>
+
+  <footer class="site-footer no-print">
+    <p>Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium &nbsp;·&nbsp; <em>Solvitur Ambulando</em></p>
+    <p style="margin-top:0.4rem; font-size:0.75rem;">An independent creative project. All distinctions are self-conferred and entirely non-accredited.</p>
+  </footer>
+
+  <script>
+    /* Nav toggle */
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+  <script src="assets/js/generator.js"></script>
+
+</body>
+</html>

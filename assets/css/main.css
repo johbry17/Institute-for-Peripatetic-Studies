@@ -1,0 +1,1294 @@
+/* ═══════════════════════════════════════════════════════
+   INSTITUTE FOR PERIPATETIC STUDIES — Main Stylesheet
+   ═══════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap');
+
+/* ─── Custom Properties ─────────────────────────────── */
+:root {
+  --green:       #1f3b2e;
+  --green-dark:  #111f18;
+  --gold:        #b89b5a;
+  --gold-light:  #d4b87a;
+  --charcoal:    #2f2f2f;
+  --ivory:       #f2f4e9;
+  --ivory-dark:  #e7e9dc;
+  --parchment:   #f5eed6;
+
+  --font-display:    'Cinzel', Georgia, serif;
+  --font-decorative: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --font-body:       'EB Garamond', Georgia, serif;
+  --font-script:     'Great Vibes', cursive;
+
+  --nav-height: 3.75rem;
+  --page-max:   1020px;
+  --page-narrow: 720px;
+}
+
+/* ─── Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  line-height: 1.78;
+  font-size: 1.0625rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+ul { list-style: none; }
+
+/* ─── Navigation ─────────────────────────────────────── */
+.site-header {
+  background-color: var(--green);
+  border-bottom: 2px solid var(--gold);
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-nav {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  gap: 1rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-brand-icon {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(184, 155, 90, 0.5);
+  flex-shrink: 0;
+}
+
+.nav-brand-name {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  line-height: 1.25;
+  max-width: 14rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+  color: rgba(242, 244, 233, 0.78);
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  transition: color 0.18s, background 0.18s;
+  border-radius: 1px;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(242, 244, 233, 0.35);
+  color: var(--ivory);
+  padding: 0.35rem 0.6rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 1px;
+  line-height: 1;
+}
+
+/* ─── Page Header ────────────────────────────────────── */
+.page-header {
+  background: linear-gradient(175deg, var(--green) 0%, var(--green-dark) 100%);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+
+.page-header-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.625rem;
+}
+
+.page-header-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: var(--ivory);
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+}
+
+.page-header-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: rgba(242, 244, 233, 0.65);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+main { flex: 1; }
+
+.page-content {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.page-content--narrow {
+  max-width: var(--page-narrow);
+}
+
+/* ─── Typography ─────────────────────────────────────── */
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--green);
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gold);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--charcoal);
+  margin-bottom: 0.625rem;
+}
+
+p { margin-bottom: 1.25rem; }
+
+p:last-child { margin-bottom: 0; }
+
+/* ─── Dividers & Ornaments ───────────────────────────── */
+.rule {
+  border: none;
+  border-top: 1px solid var(--gold);
+  opacity: 0.55;
+  margin: 2.5rem 0;
+}
+
+.ornament {
+  text-align: center;
+  color: var(--gold);
+  letter-spacing: 0.6em;
+  font-size: 1rem;
+  margin: 1.75rem 0;
+  user-select: none;
+}
+
+/* ─── Content Sections ───────────────────────────────── */
+.content-section {
+  margin-bottom: 3.5rem;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  line-height: 1.85;
+  color: var(--green);
+  font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.principle-box {
+  border: 1px solid var(--gold);
+  padding: 2rem 2.25rem;
+  margin: 2.25rem 0;
+  text-align: center;
+  background: rgba(184, 155, 90, 0.05);
+  position: relative;
+}
+
+.principle-box::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(184, 155, 90, 0.25);
+  pointer-events: none;
+}
+
+.principle-box p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--green);
+  margin: 0;
+}
+
+/* ─── HOME PAGE ──────────────────────────────────────── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5.5rem 2rem 4.5rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(31,59,46,0.08) 0%, transparent 65%),
+    var(--ivory);
+  border-bottom: 2px solid var(--gold);
+}
+
+.hero-seal {
+  width: clamp(190px, 26vw, 280px);
+  height: clamp(190px, 26vw, 280px);
+  object-fit: contain;
+  margin-bottom: 2.75rem;
+  filter: drop-shadow(0 6px 24px rgba(31, 59, 46, 0.18));
+}
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.15;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-collegium {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--charcoal);
+  opacity: 0.55;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 2.25rem;
+}
+
+.hero-divider {
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto 2rem;
+}
+
+.hero-motto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  color: var(--charcoal);
+  margin-bottom: 0.375rem;
+}
+
+.hero-motto-translation {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  letter-spacing: 0.04em;
+}
+
+/* Mission */
+.mission-section {
+  padding: 4.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.4);
+}
+
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.mission-text {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--charcoal);
+}
+
+/* Director's welcome */
+.welcome-section {
+  background: var(--green);
+  color: var(--ivory);
+  padding: 4.5rem 2rem;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+.welcome-inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  line-height: 1.88;
+  opacity: 0.88;
+  margin-bottom: 2rem;
+}
+
+.welcome-text p { color: var(--ivory); }
+
+.signature-block {
+  border-top: 1px solid rgba(184, 155, 90, 0.4);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.signature-name {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.signature-title {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242, 244, 233, 0.55);
+}
+
+/* Page-link cards */
+.page-links-section {
+  padding: 4.5rem 2rem;
+  background: var(--ivory-dark);
+}
+
+.page-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: var(--page-max);
+  margin: 2.25rem auto 0;
+}
+
+.page-link-card {
+  display: block;
+  text-decoration: none;
+  padding: 2.25rem 1.75rem;
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  color: var(--green);
+  transition: background 0.22s, color 0.22s, transform 0.15s, box-shadow 0.22s;
+  position: relative;
+}
+
+.page-link-card::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(184, 155, 90, 0.28);
+  pointer-events: none;
+  transition: border-color 0.22s;
+}
+
+.page-link-card:hover {
+  background: var(--green);
+  color: var(--ivory);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(31, 59, 46, 0.2);
+}
+
+.page-link-card:hover::after {
+  border-color: rgba(184, 155, 90, 0.5);
+}
+
+.page-link-card:hover .page-link-title,
+.page-link-card:hover .page-link-icon {
+  color: var(--gold);
+}
+
+.page-link-icon {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--gold);
+  display: block;
+  transition: color 0.22s;
+}
+
+.page-link-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+  transition: color 0.22s;
+}
+
+.page-link-desc {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+/* ─── ABOUT PAGE ─────────────────────────────────────── */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.method-item {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gold);
+  text-align: center;
+  background: rgba(184, 155, 90, 0.04);
+}
+
+/* ─── ACADEMIC AFFAIRS ───────────────────────────────── */
+.degree-card {
+  border: 1px solid var(--gold);
+  padding: 2.25rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  background: rgba(31, 59, 46, 0.02);
+}
+
+.degree-card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(184, 155, 90, 0.2);
+  pointer-events: none;
+}
+
+.degree-abbr {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.degree-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 1.125rem;
+  line-height: 1.2;
+}
+
+.doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ivory);
+  background: var(--green);
+  border: 1px solid var(--gold);
+  padding: 0.7rem 1.4rem;
+  transition: background 0.2s;
+}
+
+.doc-link:hover { background: var(--green-dark); }
+
+.disclaimer-box {
+  background: rgba(47, 47, 47, 0.04);
+  border-left: 3px solid var(--charcoal);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin-top: 3rem;
+}
+
+/* ─── DIPLOMA GENERATOR ──────────────────────────────── */
+.generator-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  align-items: start;
+}
+
+.form-panel {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+}
+
+.form-panel-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--green);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--gold);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal);
+  background: white;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(31, 59, 46, 0.12);
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  margin-top: 0.375rem;
+  line-height: 1.5;
+}
+
+.validation-msg {
+  font-size: 0.8rem;
+  color: #b03020;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.validation-msg.visible { display: block; }
+
+.print-btn {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--green);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 1.25rem;
+}
+
+.print-btn:hover:not(:disabled) { background: var(--green-dark); }
+
+.print-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.print-note {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Preview panel */
+.preview-panel-label {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.625rem;
+}
+
+.preview-wrap {
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14);
+  margin-bottom: 2.5rem;
+  background: var(--parchment);
+  cursor: default;
+}
+
+/* ─── DOCUMENT STYLES ────────────────────────────────── */
+
+/* Shared parchment background for diplomas */
+.parchment-bg {
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 25% 15%, rgba(184,155,90,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(120,90,40,0.08) 0%, transparent 45%);
+}
+
+/* ── Diploma (landscape letter: 11 × 8.5 in) ── */
+.diploma-doc {
+  width: 1056px;
+  min-height: 816px;
+  padding: 36px;
+  position: relative;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+}
+
+.diploma-border {
+  border: 2.5px solid var(--gold);
+  height: 100%;
+  min-height: 744px;
+  padding: 28px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.diploma-border::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(184, 155, 90, 0.45);
+  pointer-events: none;
+}
+
+/* Corner ornaments */
+.diploma-corner {
+  position: absolute;
+  font-size: 1.1rem;
+  color: var(--gold);
+  line-height: 1;
+  user-select: none;
+}
+
+.diploma-corner--tl { top: 14px; left: 14px; }
+.diploma-corner--tr { top: 14px; right: 14px; }
+.diploma-corner--bl { bottom: 14px; left: 14px; }
+.diploma-corner--br { bottom: 14px; right: 14px; }
+
+.diploma-institution {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.diploma-collegium {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.75rem;
+}
+
+.diploma-seal-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin: 0 auto 0.5rem;
+  filter: drop-shadow(0 2px 6px rgba(31, 59, 46, 0.2));
+}
+
+.diploma-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0.75rem 0;
+  border: none;
+}
+
+.diploma-opening {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.65;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+}
+
+.diploma-preamble {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 750px;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.diploma-recipient {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.diploma-degree-confers {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.6;
+  font-family: var(--font-display);
+  margin-bottom: 0.2rem;
+}
+
+.diploma-degree-name {
+  font-family: var(--font-decorative);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+.diploma-degree-abbr {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+}
+
+.diploma-postamble {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  max-width: 680px;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.diploma-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.diploma-date-block {
+  text-align: left;
+}
+
+.diploma-date-label {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.diploma-date-value {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  max-width: 260px;
+  font-style: italic;
+}
+
+.diploma-sig-block {
+  text-align: right;
+}
+
+.diploma-sig-name {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+.diploma-sig-line {
+  width: 180px;
+  height: 1px;
+  background: var(--charcoal);
+  opacity: 0.4;
+  margin-left: auto;
+  margin-bottom: 0.25rem;
+}
+
+.diploma-sig-title {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.6;
+}
+
+.diploma-motto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+}
+
+/* ── Letter of Conferral (portrait letter: 8.5 × 11 in) ── */
+.letter-doc {
+  width: 816px;
+  min-height: 1056px;
+  padding: 72px 84px 60px;
+  position: relative;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.letter-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-bottom: 1.125rem;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.letter-header-seal {
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 4px rgba(31, 59, 46, 0.2));
+}
+
+.letter-header-text {
+  padding-top: 0.25rem;
+}
+
+.letter-header-institution {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green);
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
+}
+
+.letter-header-collegium {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.125rem;
+}
+
+.letter-header-motto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.letter-date {
+  font-size: 0.925rem;
+  margin-bottom: 1.75rem;
+  color: var(--charcoal);
+}
+
+.letter-salutation {
+  font-size: 1.0625rem;
+  margin-bottom: 1.25rem;
+  color: var(--charcoal);
+}
+
+.letter-body {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  flex: 1;
+}
+
+.letter-body p { margin-bottom: 1.25rem; }
+
+.letter-degree-highlight {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--green);
+}
+
+.letter-closing {
+  margin-top: 2rem;
+}
+
+.letter-valediction {
+  font-size: 1.0625rem;
+  margin-bottom: 0.25rem;
+}
+
+.letter-sig-name {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--green);
+  line-height: 1;
+  margin: 0.5rem 0 0.125rem;
+}
+
+.letter-sig-line {
+  width: 200px;
+  height: 1px;
+  background: var(--charcoal);
+  opacity: 0.35;
+  margin-bottom: 0.3rem;
+}
+
+.letter-sig-title {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+.letter-footer-rule {
+  border: none;
+  border-top: 1px solid rgba(184, 155, 90, 0.4);
+  margin-top: auto;
+  padding-top: 0.875rem;
+}
+
+.letter-footer-motto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--gold);
+  text-align: center;
+  display: block;
+}
+
+/* ─── CHARTER DOCUMENT ───────────────────────────────── */
+.charter-doc {
+  max-width: 816px;
+  margin: 0 auto;
+  padding: 3rem 4rem;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: white;
+}
+
+.charter-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.charter-header-seal {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.5rem;
+}
+
+.charter-preheader {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.charter-title {
+  font-family: var(--font-decorative);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+.charter-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+}
+
+.charter-preamble {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(184, 155, 90, 0.04);
+}
+
+.charter-article {
+  margin-bottom: 2rem;
+}
+
+.charter-article-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.4);
+}
+
+.charter-article p { font-size: 1rem; line-height: 1.8; margin-bottom: 0.875rem; }
+
+.charter-article ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  list-style: decimal;
+}
+
+.charter-article ol li {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  list-style: decimal;
+}
+
+.charter-attestation {
+  text-align: center;
+  padding: 2rem 0 0;
+  border-top: 1px solid rgba(184, 155, 90, 0.4);
+  margin-top: 2rem;
+}
+
+.charter-attestation-text {
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 1rem;
+}
+
+.charter-sig-name {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.125rem;
+}
+
+.charter-sig-line {
+  width: 220px;
+  height: 1px;
+  background: var(--charcoal);
+  opacity: 0.3;
+  margin: 0 auto 0.375rem;
+}
+
+.charter-sig-info {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.55;
+  line-height: 1.8;
+}
+
+/* Print button on standalone documents */
+.doc-print-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--ivory-dark);
+  background: var(--ivory);
+  gap: 0.75rem;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+.site-footer {
+  background: var(--green);
+  border-top: 2px solid var(--gold);
+  padding: 2rem 2rem;
+  text-align: center;
+  color: rgba(242, 244, 233, 0.6);
+  font-size: 0.83rem;
+  line-height: 1.7;
+}
+
+.site-footer p { margin: 0; }
+
+/* ─── Utilities ──────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--green);
+    flex-direction: column;
+    border-bottom: 2px solid var(--gold);
+    padding: 0.5rem 0;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links a {
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(242, 244, 233, 0.08);
+  }
+
+  .nav-toggle { display: block; }
+
+  .generator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-panel {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .page-content { padding: 3rem 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .mission-section, .welcome-section, .page-links-section { padding: 3.5rem 1.25rem; }
+  .page-links-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Print ──────────────────────────────────────────── */
+@media print {
+  .site-header,
+  .site-footer,
+  .doc-print-bar,
+  .form-panel,
+  .preview-panel-label,
+  .print-btn,
+  .print-note,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    font-size: 10pt;
+  }
+
+  .preview-wrap {
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  .preview-doc {
+    transform: none !important;
+    width: auto !important;
+  }
+
+  .diploma-doc { page: diploma-page; }
+  .letter-doc  { page: letter-page; break-before: page; }
+}
+
+@page { margin: 0; }
+@page diploma-page { size: letter landscape; }
+@page letter-page  { size: letter portrait; }

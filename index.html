@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institute for Peripatetic Studies</title>
+  <meta name="description" content="The Institute for Peripatetic Studies advances Peripatetics — the interdisciplinary study of place through movement, observation, and direct engagement with the world.">
+  <link rel="icon" href="resources/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand" aria-label="Institute for Peripatetic Studies — Home">
+        <img src="resources/images/favicon.png" alt="" class="nav-brand-icon" aria-hidden="true">
+        <span class="nav-brand-name">Institute for<br>Peripatetic Studies</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="academic-affairs.html">Academic Affairs</a></li>
+        <li><a href="diploma-generator.html">Diploma Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <img src="resources/images/Seal.png"
+           alt="Seal of the Institute for Peripatetic Studies — a compass rose over a globe and winding path, bearing the motto Solvitur Ambulando"
+           class="hero-seal">
+      <p class="hero-eyebrow">Est. Anno Domini MMXXIV</p>
+      <h1 class="hero-title" id="hero-heading">Institute for<br>Peripatetic Studies</h1>
+      <p class="hero-collegium">Collegium Itinerantium</p>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-motto">&#8220;Solvitur Ambulando&#8221;</p>
+      <p class="hero-motto-translation">It is solved by walking.</p>
+    </section>
+
+    <!-- ── Mission ── -->
+    <section class="mission-section" aria-labelledby="mission-heading">
+      <p class="section-eyebrow" id="mission-heading">Mission</p>
+      <p class="mission-text">
+        The Institute for Peripatetic Studies advances Peripatetics — the interdisciplinary
+        study of place through movement. We hold that wandering, observation, and direct
+        engagement with landscapes produce a form of knowledge that no desk can replicate,
+        and that not every worthy journey requires a destination to justify itself.
+      </p>
+    </section>
+
+    <!-- ── Welcome ── -->
+    <section class="welcome-section" aria-labelledby="welcome-heading">
+      <div class="welcome-inner">
+        <p class="section-eyebrow" id="welcome-heading" style="color:var(--gold); margin-bottom:1.5rem; letter-spacing:0.35em; font-family:var(--font-display); font-size:0.62rem; text-transform:uppercase;">A Welcome from the Director</p>
+        <div class="welcome-text">
+          <p>The Institute for Peripatetic Studies arose from a recognition that moving through the
+          world teaches things that remaining in one place cannot. A landscape encountered on foot
+          is a different object of study than a landscape described in a text or observed from a
+          window. The path itself is a kind of argument.</p>
+          <p>This institution exists to take that argument seriously — with appropriate ceremony.
+          It is devoted to the study of places, journeys, and the knowledge that emerges from
+          direct engagement with the world. Its methods include walking, observation, conversation,
+          and honest curiosity. Its guiding motto, <em>Solvitur Ambulando</em>, is both its
+          program and its answer to most objections.</p>
+          <p>You are welcome here, whatever road brought you.</p>
+        </div>
+        <div class="signature-block">
+          <p class="signature-name">Bryan Johns</p>
+          <p class="signature-title">Founding Director &nbsp;·&nbsp; Doctor of Peripatetic Studies</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Navigation links ── -->
+    <section class="page-links-section" aria-label="Site sections">
+      <p class="section-eyebrow" style="text-align:center; color:var(--gold); letter-spacing:0.35em; font-family:var(--font-display); font-size:0.62rem; text-transform:uppercase;">Explore the Institute</p>
+      <div class="page-links-grid">
+        <a href="about.html" class="page-link-card">
+          <span class="page-link-icon" aria-hidden="true">&#9788;</span>
+          <span class="page-link-title">About the Institute</span>
+          <span class="page-link-desc">Our founding story, philosophical principles, and commitment to place-based inquiry.</span>
+        </a>
+        <a href="academic-affairs.html" class="page-link-card">
+          <span class="page-link-icon" aria-hidden="true">&#127891;</span>
+          <span class="page-link-title">Academic Affairs</span>
+          <span class="page-link-desc">The Institute's academic distinctions, the Doctor and Licentiate of Peripatetic Studies.</span>
+        </a>
+        <a href="diploma-generator.html" class="page-link-card">
+          <span class="page-link-icon" aria-hidden="true">&#128196;</span>
+          <span class="page-link-title">Diploma Generator</span>
+          <span class="page-link-desc">Receive your Licentiate of Peripatetic Studies diploma and letter of conferral.</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium &nbsp;·&nbsp; <em>Solvitur Ambulando</em></p>
+    <p style="margin-top:0.4rem; font-size:0.75rem;">An independent creative project. All distinctions are self-conferred and entirely non-accredited.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>
