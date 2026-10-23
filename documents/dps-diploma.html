@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
     body { background: #d8d4c0; }
     .diploma-wrapper {
@@ -34,6 +35,9 @@
     </span>
     <button onclick="window.print()" class="doc-link" style="cursor:pointer; font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;">
       &#128438;&nbsp; Print / Save as PDF
+    </button>
+    <button id="export-png-btn" class="doc-link" style="cursor:pointer; font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; background:var(--charcoal); border-color:var(--charcoal);">
+      &#8595;&nbsp; Export as PNG
     </button>
   </div>
 
@@ -97,6 +101,64 @@
       </div><!-- /.diploma-border -->
     </div><!-- /.diploma-doc -->
   </div><!-- /.diploma-wrapper -->
+
+  <script>
+    /**
+     * Export the D.P.S. diploma as a high-resolution PNG.
+     * Target: 3300 × 2550 px (300 dpi at 11 × 8.5 in).
+     * html2canvas captures the element at a 3.125× device-pixel ratio so that
+     * every 1 CSS pixel becomes ~3.125 output pixels, giving ~300 dpi when the
+     * element is 1056 × 816 px (11 × 8.5 in @ 96 dpi).
+     */
+    async function exportDiplomaPNG() {
+      const btn = document.getElementById('export-png-btn');
+      const label = btn.textContent;
+      btn.textContent = 'Generating…';
+      btn.disabled = true;
 
+      try {
+        /* Wait for Google Fonts (Cinzel, EB Garamond, Great Vibes) to load */
+        await document.fonts.ready;
+
+        const diploma = document.querySelector('.diploma-doc');
+
+        /* Scale factor: target 3300 px wide at the element's natural CSS width */
+        const TARGET_WIDTH_PX = 3300;
+        const scale = TARGET_WIDTH_PX / diploma.offsetWidth; /* ≈ 3.125 */
+
+        const canvas = await html2canvas(diploma, {
+          scale:           scale,
+          useCORS:         true,
+          allowTaint:      true,
+          backgroundColor: '#f5eed6',   /* parchment fallback */
+          logging:         false,
+          width:           diploma.offsetWidth,
+          height:          diploma.offsetHeight,
+          onclone: function (doc) {
+            /* Ensure any residual screen transform is cleared in the clone */
+            const el = doc.querySelector('.diploma-doc');
+            if (el) { el.style.transform = 'none'; }
+          }
+        });
+
+        /* Trigger browser download */
+        const a = document.createElement('a');
+        a.download = 'dps-diploma.png';
+        a.href = canvas.toDataURL('image/png', 1.0);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (err) {
+        console.error('PNG export failed:', err);
+        alert('PNG export failed — see the browser console for details.');
+      } finally {
+        btn.textContent = label;
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('export-png-btn')
+            .addEventListener('click', exportDiplomaPNG);
+  </script>
 </body>
 </html>

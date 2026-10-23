@@ -77,6 +77,16 @@ The diploma generator's **Print Both Documents** button produces a two-page prin
 
 ---
 
+## Exporting the D.P.S. Diploma as PNG
+
+Open `documents/dps-diploma.html` in Chrome or Edge and click **↓ Export as PNG**. The button uses [html2canvas](https://html2canvas.hertzen.com/) (loaded from CDN) to render the diploma at 3300 × 2550 px (~300 dpi) and downloads `dps-diploma.png`.
+
+**To regenerate the PNG** after editing the diploma's HTML or CSS: open the file in a browser, wait for fonts to load, then click the button again. No build step is required.
+
+*Note: html2canvas renders the browser's composited pixels. CSS filters (e.g., `drop-shadow` on the seal) may render slightly differently than the print PDF. All text, borders, parchment gradients, and the Great Vibes signature render accurately.*
+
+---
+
 ## Project Structure
 
 ```
@@ -90,7 +100,7 @@ The diploma generator's **Print Both Documents** button produces a two-page prin
 │   └── js/generator.js          # Diploma generator logic
 ├── documents/
 │   ├── charter.html             # Founding charter
-│   ├── dps-diploma.html         # D.P.S. diploma (Bryan Johns)
+│   ├── dps-diploma.html         # D.P.S. diploma (Bryan Johns) — PDF & PNG export
 │   └── dps-conferral.html       # D.P.S. instrument of conferral
 └── resources/
     └── images/                  # Brand assets (seal, wordmark, favicon, etc.)

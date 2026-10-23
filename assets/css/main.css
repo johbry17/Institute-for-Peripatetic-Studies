@@ -1268,10 +1268,7 @@ p:last-child { margin-bottom: 0; }
     display: none !important;
   }
 
-  body {
-    background: white;
-    font-size: 10pt;
-  }
+  body { background: white; }
 
   .preview-wrap {
     overflow: visible !important;
@@ -1280,15 +1277,55 @@ p:last-child { margin-bottom: 0; }
     margin: 0 !important;
   }
 
-  .preview-doc {
-    transform: none !important;
-    width: auto !important;
+  /* Remove screen-only JS scaling transform */
+  .preview-doc { transform: none !important; }
+
+  /* ── Diploma: exactly one US Letter landscape page ── */
+  .diploma-doc {
+    page: diploma-page;
+    /* Physical dimensions — DPI-agnostic */
+    width:      11in  !important;
+    height:     8.5in !important;
+    min-height: unset !important;
+    padding:    0.375in !important;  /* preserves existing 36 px visual margin */
+    overflow:   hidden !important;
+    box-sizing: border-box !important;
+    break-inside: avoid;
+    break-before: avoid;
+    break-after:  avoid;
   }
 
-  .diploma-doc { page: diploma-page; }
-  .letter-doc  { page: letter-page; break-before: page; }
+  .diploma-border {
+    height:     100%  !important;
+    min-height: unset !important;
+    overflow:   hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Targeted print-only spacing: recover the ~55 px that exceed one page on screen.
+     Values are chosen to proportionally tighten rhythm without removing any element. */
+  .diploma-seal-img    { width: 108px !important; height: 108px !important;
+                         margin-bottom: 0.25rem !important; }
+  .diploma-collegium   { margin-bottom: 0.375rem !important; }
+  .diploma-rule        { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+  .diploma-opening     { margin-bottom: 0.3rem !important; }
+  .diploma-preamble    { margin-bottom: 0.5rem !important; }
+  .diploma-recipient   { margin-top: 0.2rem !important; margin-bottom: 0.35rem !important; }
+  .diploma-degree-abbr { margin-bottom: 0.5rem !important; }
+  .diploma-postamble   { margin-bottom: 0.3rem !important; }
+
+  /* ── Letter of conferral: one portrait page ── */
+  .letter-doc {
+    page:       letter-page;
+    break-before: page;
+    width:      8.5in !important;
+    height:     11in  !important;
+    min-height: unset !important;
+    overflow:   hidden !important;
+    box-sizing: border-box !important;
+  }
 }
 
-@page { margin: 0; }
+@page           { margin: 0; }
 @page diploma-page { size: letter landscape; }
-@page letter-page  { size: letter portrait; }
+@page letter-page  { size: letter portrait;  }
