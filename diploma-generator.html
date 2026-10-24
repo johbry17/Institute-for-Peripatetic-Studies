@@ -25,7 +25,32 @@
     @media (max-width: 760px) {
       .generator-layout { padding: 2rem 1.25rem 3rem; }
     }
+    /* ── Generator-specific print layout ──────────────────────────
+       The global main.css rules size and page-assign the diploma-doc
+       and letter-doc. These rules reset the surrounding generator
+       chrome (page header, grid container, preview wrappers) so the
+       two documents land cleanly on their respective printed pages.   */
+    @media print {
+      /* Hide site chrome specific to the generator */
+      .page-header { display: none !important; }
+      /* Flatten the grid so the preview area is a simple block flow */
+      body, main {
+        display: block !important;
+      }
+      .generator-layout {
+        display: block !important;
+        padding: 0 !important;
+        gap:     0 !important;
+        margin:  0 !important;
+      }
+      .preview-area {
+        display: block !important;
+        padding: 0 !important;
+        margin:  0 !important;
+      }
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -101,6 +126,18 @@
           &#128438;&nbsp; Print Both Documents
         </button>
         <p class="print-note">Opens your browser&#8217;s print dialog. Choose &#8220;Save as PDF&#8221; to save digitally.</p>
+
+        <button class="print-btn" id="export-diploma-btn" disabled
+                style="margin-top:0.625rem; background:var(--charcoal); border-color:var(--charcoal);"
+                aria-label="Export L.P.S. diploma as PNG">
+          &#8595;&nbsp; Export Diploma as PNG
+        </button>
+        <button class="print-btn" id="export-letter-btn" disabled
+                style="margin-top:0.375rem; background:var(--charcoal); border-color:var(--charcoal);"
+                aria-label="Export letter of conferral as PNG">
+          &#8595;&nbsp; Export Letter as PNG
+        </button>
+        <p class="print-note" style="margin-top:0.5rem;">PNG exports: 3300&#8239;×&#8239;2550 px (diploma) and 2550&#8239;×&#8239;3300 px (letter), ~300&#8239;dpi.</p>
       </aside>
 
       <!-- ── Preview Panel ── -->
@@ -265,6 +302,109 @@
     });
   </script>
   <script src="assets/js/generator.js"></script>
+  <script>
+    /**
+     * PNG export for the L.P.S. generator.
+     *
+     * Both documents (diploma 1056×816 px, letter 816×1056 px) are captured at
+     * scale ≈ 3.125 to produce ~300 dpi at US Letter dimensions:
+     *   Diploma  → 3300 × 2550 px  (11 × 8.5 in @ 300 dpi)
+     *   Letter   → 2550 × 3300 px  ( 8.5 × 11 in @ 300 dpi)
+     *
+     * The onclone callback removes the JS-applied preview-scale transform and
+     * unhides the wrap overflow so html2canvas sees the full-size document at its
+     * natural 1056 × 816 px / 816 × 1056 px layout dimensions.
+     */
+    async function exportGeneratorPNG(docId, wrapId, filename, targetWidth, bgColor) {
+      const docEl  = document.getElementById(docId);
+      const wrapEl = document.getElementById(wrapId);
+      if (!docEl) return;
+
+      const btn = document.getElementById(
+        docId === 'diploma-doc' ? 'export-diploma-btn' : 'export-letter-btn'
+      );
+      const originalLabel = btn.textContent;
+      btn.textContent = 'Generating\u2026';
+      btn.disabled = true;
+
+      try {
+        await document.fonts.ready;
+
+        const scale = targetWidth / docEl.offsetWidth;  /* ≈ 3.125 for both */
+
+        const canvas = await html2canvas(docEl, {
+          scale:           scale,
+          useCORS:         true,
+          allowTaint:      true,
+          backgroundColor: bgColor,
+          logging:         false,
+          width:           docEl.offsetWidth,
+          height:          docEl.offsetHeight,
+          onclone: function (clonedDoc) {
+            /* Remove the screen-preview transform so the clone renders at 100% */
+            const clonedDoc2 = clonedDoc.getElementById(docId);
+            if (clonedDoc2) { clonedDoc2.style.transform = 'none'; }
+            /* Let the wrap show the full document, not the scaled preview crop */
+            const clonedWrap = clonedDoc.getElementById(wrapId);
+            if (clonedWrap) {
+              clonedWrap.style.overflow = 'visible';
+              clonedWrap.style.height   = 'auto';
+            }
+          }
+        });
+
+        const a = document.createElement('a');
+        a.download = filename;
+        a.href = canvas.toDataURL('image/png', 1.0);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (err) {
+        console.error('PNG export failed:', err);
+        alert('PNG export failed — see the browser console for details.');
+      } finally {
+        btn.textContent = originalLabel;
+        btn.disabled    = false;
+      }
+    }
+
+    /* Wire up buttons after generator.js has initialised them */
+    document.addEventListener('DOMContentLoaded', function () {
+      const exportDiplomaBtn = document.getElementById('export-diploma-btn');
+      const exportLetterBtn  = document.getElementById('export-letter-btn');
+      const nameInput        = document.getElementById('recipient-name');
+
+      function syncExportButtons() {
+        const valid = nameInput && nameInput.value.trim().length > 0;
+        if (exportDiplomaBtn) exportDiplomaBtn.disabled = !valid;
+        if (exportLetterBtn)  exportLetterBtn.disabled  = !valid;
+      }
+
+      if (nameInput) nameInput.addEventListener('input', syncExportButtons);
+
+      if (exportDiplomaBtn) {
+        exportDiplomaBtn.addEventListener('click', function () {
+          exportGeneratorPNG(
+            'diploma-doc', 'diploma-wrap',
+            'lps-diploma.png',
+            3300,          /* target width → 3300 × 2550 px at scale ≈ 3.125 */
+            '#f5eed6'      /* parchment background */
+          );
+        });
+      }
+
+      if (exportLetterBtn) {
+        exportLetterBtn.addEventListener('click', function () {
+          exportGeneratorPNG(
+            'letter-doc', 'letter-wrap',
+            'lps-letter-of-conferral.png',
+            2550,          /* target width → 2550 × 3300 px at scale ≈ 3.125 */
+            '#ffffff'      /* letter is white */
+          );
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

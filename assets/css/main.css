@@ -1270,15 +1270,26 @@ p:last-child { margin-bottom: 0; }
 
   body { background: white; }
 
+  /* Clear JS-set inline height so documents aren't height-constrained at print time */
   .preview-wrap {
-    overflow: visible !important;
-    border: none !important;
+    height:     auto !important;
+    overflow:   visible !important;
+    border:     none !important;
     box-shadow: none !important;
-    margin: 0 !important;
+    margin:     0 !important;
   }
 
   /* Remove screen-only JS scaling transform */
   .preview-doc { transform: none !important; }
+
+  /* Force background colors/images to print.
+     NOTE: In Chrome/Edge the "Background graphics" checkbox in the print dialog
+     must also be enabled; print-color-adjust alone is not always honoured when
+     the user has explicitly disabled that setting. */
+  .parchment-bg {
+    -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+  }
 
   /* ── Diploma: exactly one US Letter landscape page ── */
   .diploma-doc {
@@ -1293,6 +1304,9 @@ p:last-child { margin-bottom: 0; }
     break-inside: avoid;
     break-before: avoid;
     break-after:  avoid;
+    /* Force parchment background to print */
+    -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
   }
 
   .diploma-border {
@@ -1316,13 +1330,14 @@ p:last-child { margin-bottom: 0; }
 
   /* ── Letter of conferral: one portrait page ── */
   .letter-doc {
-    page:       letter-page;
+    page:         letter-page;
     break-before: page;
     width:      8.5in !important;
     height:     11in  !important;
     min-height: unset !important;
     overflow:   hidden !important;
     box-sizing: border-box !important;
+    box-shadow: none !important;          /* overrides inline style="box-shadow:…" */
   }
 }
 

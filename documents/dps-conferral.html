@@ -19,8 +19,19 @@
     @media print {
       body { background: white; }
       .conferral-wrapper { padding: 0; margin: 0; max-width: none; }
+      /* The conferral letter is ~1392 px tall — larger than one US Letter page
+         (1056 px / 11 in).  Forcing height: 11in would silently clip the
+         signature and footer.  Allow natural two-page flow instead.
+         The higher-specificity selector (0,2,0) beats main.css (0,1,0) so
+         the override works even when both rules carry !important.            */
+      .conferral-wrapper .letter-doc {
+        box-shadow:   none !important;
+        break-before: auto !important;
+        height:       auto !important;
+        overflow:     visible !important;
+      }
     }
-    @page { size: letter portrait; margin: 0.875in 1in; }
+    @page { size: letter portrait; margin: 0; }
   </style>
 </head>
 <body>

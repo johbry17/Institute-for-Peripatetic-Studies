@@ -19,7 +19,7 @@
     @media print {
       body { background: white; }
       .charter-wrapper { padding: 0; margin: 0; max-width: none; }
-      .charter-doc { box-shadow: none; }
+      .charter-doc { box-shadow: none !important; }  /* overrides inline style="box-shadow:…" */
     }
     @page { size: letter portrait; margin: 0.875in 1in; }
   </style>
