@@ -53,7 +53,7 @@
     const day   = parseInt(parts[2], 10);
     if (isNaN(year) || isNaN(month) || isNaN(day)) return iso;
     return 'the ' + ordinal(day) + ' Day of ' + months[month - 1] +
-           ', in the Year ' + intToWords(year);
+           ',\nin the Year ' + intToWords(year);
   }
 
   /** "2026-10-23" -> "October 23, 2026" */
