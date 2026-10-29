@@ -102,8 +102,7 @@ Open `documents/dps-diploma.html` in Chrome or Edge and click **↓ Export as PN
 │   ├── charter.html             # Founding charter
 │   ├── dps-diploma.html         # D.P.S. diploma (Bryan Johns) — PDF & PNG export
 │   └── dps-conferral.html       # D.P.S. instrument of conferral
-└── resources/
-    └── images/                  # Brand assets (seal, wordmark, favicon, etc.)
+└── design/                  # Brand assets (seal, wordmark, favicon, etc.)
 ```
 
 ---
