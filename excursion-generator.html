@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excursion Generator | Institute for Peripatetic Studies</title>
+  <meta name="description" content="A scholarly reason to take a walk, generated on demand by the Institute for Peripatetic Studies.">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand" aria-label="Institute for Peripatetic Studies — Home">
+        <img src="assets/images/favicon.png" alt="" class="nav-brand-icon" aria-hidden="true">
+        <span class="nav-brand-name">Institute for<br>Peripatetic Studies</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="field-notes/index.html">Field Notes</a></li>
+        <li><a href="academic-affairs.html">Academic Affairs</a></li>
+        <li><a href="diploma-generator.html">Diploma Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <header class="page-header">
+      <p class="page-header-eyebrow">Collegium Itinerantium — Instrument of Inquiry</p>
+      <h1 class="page-header-title">Excursion Generator</h1>
+      <p class="page-header-sub">A formally phrased reason to go for a walk</p>
+    </header>
+
+    <!-- Generator -->
+    <section class="excursion-generator-section" aria-labelledby="generator-heading">
+      <div class="excursion-generator-inner">
+        <p class="excursion-generator-eyebrow">The Institute proposes</p>
+        <h2 class="excursion-generator-heading" id="generator-heading" aria-live="polite">
+          Your excursion objective will appear here.
+        </h2>
+
+        <div class="excursion-output" role="region" aria-live="polite" aria-atomic="true" aria-label="Generated excursion objective">
+          <p class="excursion-output-text" id="excursion-text">
+            Press the button below to receive a scholarly reason to go for a walk.
+          </p>
+        </div>
+
+        <button class="excursion-btn" id="generate-btn" aria-controls="excursion-text">
+          Generate an Excursion Objective
+        </button>
+
+        <p class="excursion-generator-intro" style="margin-top:1.5rem; margin-bottom:0;">
+          Each objective is generated from the Institute's curated register of peripatetic
+          purposes. No two consecutive objectives will be identical. The Institute accepts
+          no responsibility for how far one walks as a result.
+        </p>
+      </div>
+    </section>
+
+    <!-- Explanatory section -->
+    <div class="page-content page-content--narrow">
+      <div class="content-section">
+        <h2>About the Generator</h2>
+        <p>
+          The Excursion Generator is a small institutional instrument. Its purpose is to
+          provide a formally phrased scholarly justification for a walk that one was
+          probably going to take anyway. The Institute takes the view that most worthwhile
+          excursions are undertaken in this spirit: something prompts a departure, the walk
+          produces observations, and the observations retrospectively justify the original
+          impulse. The Generator simply makes the first step more official.
+        </p>
+        <p>
+          The objectives produced by the Generator are genuine peripatetic research questions.
+          The Institute encourages users to take them seriously, carry a field card, and record
+          what they find.
+        </p>
+        <p>
+          For the observation framework to carry into the field, see the
+          <a href="field-card.html" style="color:var(--green); text-decoration:underline;">Peripatetic Field Card</a>.
+          For the formal classification of excursion types, see
+          <a href="academic-affairs.html#classification-heading" style="color:var(--green); text-decoration:underline;">Academic Affairs</a>.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium &nbsp;·&nbsp; <em>Solvitur Ambulando</em></p>
+    <p style="margin-top:0.4rem; font-size:0.75rem;">An independent creative project. All distinctions are self-conferred and entirely non-accredited.</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const prompts = [
+        'To determine whether the apparent boundary between two distinct neighborhoods corresponds to any observable feature of the landscape.',
+        'To revisit a location whose significance was not fully apparent during the original passage, and to establish whether a second visit resolves or deepens the question.',
+        'To establish whether the long route and the short route between two points produce materially different impressions of the same destination.',
+        'To investigate a bench whose placement appears to anticipate a question not yet formulated.',
+        'To walk the perimeter of a block that has never been traversed in its entirety, and to record what, if anything, differs between its faces.',
+        'To locate the point at which a familiar route ceases to be interesting and to determine what feature of the landscape is responsible.',
+        'To follow a path to its end and to note whether the end was anticipated, whether it constitutes an ending in any meaningful sense, and whether the return is by the same route.',
+        'To examine a location recalled imprecisely from a previous visit and to determine how far the memory and the place are in agreement.',
+        'To walk in conditions that have not previously been observed — a different season, time of day, or state of weather — and to record what, if anything, changes.',
+        'To identify the point at which a residential district gives way to a commercial one, and to determine whether this transition is visible, legible, or merely inferred.',
+        'To walk through an area undergoing change and to record what appears to be disappearing, what appears to be arriving, and what appears to be genuinely indeterminate.',
+        'To find a route that appears on a map but whose existence on the ground is uncertain.',
+        'To determine whether a hill, rise, or elevated point visible from a distance offers the view it appears to promise.',
+        'To investigate the eastern (or western) edge of a familiar territory and to record what lies immediately beyond it.',
+        'To follow a body of water — a river, canal, or drainage channel — for a given distance and to note what the water organizes around it.',
+        'To locate a place that appears to exist for the convenience of pedestrians and to determine whether it succeeds in this purpose.',
+        'To observe a piece of street furniture — a post, a sign, a barrier — whose purpose is unclear, and to propose at least two hypotheses concerning its function and origin.',
+        'To walk a route chosen by someone else, whether a historical account, a map annotation, or a recommendation, and to compare the experience with whatever was anticipated.',
+        'To find a place that does not appear on any map consulted and to record its location, character, and the most plausible reason for its absence.',
+        'To determine whether the stated distance between two points and the experienced distance are in reasonable agreement, and to account for any discrepancy.',
+        'To observe a building whose current use appears inconsistent with its original design and to record the evidence for both.',
+        'To trace the route of a former path, road, or railway line whose physical presence has been partially or wholly obscured, and to note where the evidence persists.',
+        'To identify the most interesting twelve minutes of a familiar commute that has never been walked, and to determine whether they justify the extension.',
+        'To investigate a corner, junction, or convergence point that has been passed many times without ever being properly attended to.',
+        'To observe a landscape feature — a tree, a wall, a change in paving — that has persisted across an otherwise altered environment, and to consider what its persistence implies.',
+        'To walk with no destination and to record, at intervals, what has been noticed that would not have been noticed from a fixed position.',
+        'To determine, by direct observation, whether a street regarded as uninteresting is genuinely uninteresting or merely familiar.',
+        'To find the quietest point within a ten-minute walk of a noisy location, and to account for the quiet.',
+        'To observe a place of transition — an entrance, a threshold, a gateway — and to record what changes on either side of it.',
+        'To establish whether the route one habitually takes is the route one would choose again with full information, and, if not, to determine what would be changed.',
+      ];
+
+      /* Shuffle array in place (Fisher-Yates) */
+      function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      }
+
+      let deck = [];
+      let lastIndex = -1;
+
+      function nextPrompt() {
+        if (deck.length === 0) {
+          deck = prompts.slice();
+          shuffle(deck);
+          /* Avoid immediate repetition across shuffles */
+          if (deck.length > 1 && deck[0] === prompts[lastIndex]) {
+            deck.push(deck.shift());
+          }
+        }
+        const text = deck.shift();
+        lastIndex = prompts.indexOf(text);
+        return text;
+      }
+
+      const textEl = document.getElementById('excursion-text');
+      const btn    = document.getElementById('generate-btn');
+
+      function generate() {
+        const p = nextPrompt();
+        textEl.classList.add('fading');
+        setTimeout(() => {
+          textEl.textContent = p;
+          textEl.classList.remove('fading');
+        }, 250);
+      }
+
+      btn.addEventListener('click', generate);
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); generate(); }
+      });
+
+      /* Nav toggle */
+      const toggle   = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+      toggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      document.addEventListener('click', e => {
+        if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

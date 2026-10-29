@@ -103,18 +103,21 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 0.125rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .nav-links a {
   font-family: var(--font-display);
-  font-size: 0.67rem;
-  letter-spacing: 0.12em;
+  font-size: 0.63rem;
+  letter-spacing: 0.07em;
   color: rgba(242, 244, 233, 0.78);
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.6rem;
   transition: color 0.18s, background 0.18s;
   border-radius: 1px;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -1217,7 +1220,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ─── Responsive ─────────────────────────────────────── */
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .nav-links {
     display: none;
     position: absolute;
@@ -1227,6 +1230,7 @@ p:last-child { margin-bottom: 0; }
     flex-direction: column;
     border-bottom: 2px solid var(--gold);
     padding: 0.5rem 0;
+    overflow: visible;
   }
 
   .nav-links.open { display: flex; }
@@ -1255,6 +1259,739 @@ p:last-child { margin-bottom: 0; }
   .mission-section, .welcome-section, .page-links-section { padding: 3.5rem 1.25rem; }
   .page-links-grid { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   ENRICHMENT — Phase 2–9
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Ornament Rule Images ───────────────────────────── */
+.ornament-rule {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 2.25rem auto;
+  opacity: 0.82;
+}
+
+/* ─── Landscape Banner ───────────────────────────────── */
+.landscape-banner {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--gold);
+  line-height: 0;
+}
+
+.landscape-banner-img {
+  width: 100%;
+  height: clamp(200px, 32vw, 440px);
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+  opacity: 0.88;
+}
+
+.landscape-banner-caption {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(242,244,233,0.75);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+}
+
+/* ─── Announcements Section ──────────────────────────── */
+.announcements-section {
+  padding: 4.5rem 2rem;
+  background: var(--ivory);
+  border-bottom: 1px solid rgba(184, 155, 90, 0.4);
+}
+
+.announcements-inner {
+  max-width: var(--page-narrow);
+  margin: 0 auto;
+}
+
+.announcements-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+.announcements-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.announcement-item {
+  padding: 1.375rem 0;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.28);
+}
+
+.announcement-item:last-child { border-bottom: none; }
+
+.announcement-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.announcement-body {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+/* ─── Featured Field Note Section ────────────────────── */
+.featured-note-section {
+  padding: 4.5rem 2rem;
+  background: var(--ivory-dark);
+  border-bottom: 2px solid var(--gold);
+}
+
+.featured-note-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.featured-note-text { }
+
+.featured-note-label {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.featured-note-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.featured-note-abstract {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.featured-note-image-wrap {
+  border: 1px solid var(--gold);
+  padding: 0.5rem;
+  background: white;
+}
+
+.featured-note-image {
+  width: 100%;
+  height: clamp(180px, 28vw, 360px);
+  object-fit: cover;
+  display: block;
+  filter: sepia(20%) contrast(1.05);
+}
+
+/* ─── Field Notes Index ──────────────────────────────── */
+.field-notes-index {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.field-note-entry {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.3);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.field-note-entry:first-child { padding-top: 0; }
+
+.field-note-entry-text { }
+
+.field-note-entry-number {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.field-note-entry-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  display: block;
+}
+
+a.field-note-entry-title:hover { color: var(--gold); }
+
+.field-note-entry-abstract {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: var(--charcoal);
+  margin: 0 0 0.75rem;
+}
+
+.field-note-entry-meta {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--charcoal);
+  opacity: 0.55;
+}
+
+.field-note-editorial-note {
+  margin-top: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  background: rgba(47,47,47,0.04);
+  border-left: 2px solid rgba(184, 155, 90, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--charcoal);
+}
+
+/* Status badges */
+.fn-status {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1;
+}
+
+.fn-available      { color: var(--green); border-color: var(--green); background: rgba(31,59,46,0.05); }
+.fn-preparation    { color: #6b5c2a; border-color: #b89b5a; background: rgba(184,155,90,0.08); }
+.fn-under-review   { color: #3a3a5a; border-color: #7a7aaa; background: rgba(100,100,180,0.06); }
+.fn-deferred       { color: #555; border-color: #999; background: rgba(0,0,0,0.04); }
+.fn-not-recovered  { color: #6a3a1e; border-color: #aa6a3e; background: rgba(120,60,20,0.06); }
+
+/* Unavailable paper expand/collapse via <details> */
+.fn-editorial-details summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.75rem;
+  user-select: none;
+}
+.fn-editorial-details summary::-webkit-details-marker { display: none; }
+.fn-editorial-details summary::before { content: '+ '; }
+.fn-editorial-details[open] summary::before { content: '− '; }
+
+/* ─── Essay / Full Field Note ────────────────────────── */
+.essay-header { margin-bottom: 3rem; }
+.essay-series {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.essay-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+.essay-meta {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--charcoal);
+  opacity: 0.55;
+  margin-bottom: 1.5rem;
+}
+.essay-body { }
+.essay-body p { font-size: 1.0625rem; line-height: 1.85; margin-bottom: 1.375rem; }
+.essay-body h3 {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  margin: 2.25rem 0 0.875rem;
+  border-bottom: 1px solid rgba(184,155,90,0.35);
+  padding-bottom: 0.4rem;
+}
+.essay-pullquote {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: var(--green);
+  background: rgba(184,155,90,0.05);
+}
+
+/* ─── Classification of Excursions ──────────────────── */
+.classification-list { list-style: none; padding: 0; margin: 0; }
+
+.classification-entry {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.28);
+  align-items: baseline;
+}
+.classification-entry:last-child { border-bottom: none; }
+
+.classification-numeral {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.classification-type {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.classification-def {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+/* ─── Academic Regulations ───────────────────────────── */
+.regulations-list { list-style: none; padding: 0; margin: 0; }
+
+.regulation-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.125rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(184, 155, 90, 0.2);
+  align-items: baseline;
+}
+.regulation-item:last-child { border-bottom: none; }
+
+.regulation-number {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.regulation-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+/* ─── Excursion Generator ────────────────────────────── */
+.excursion-generator-section {
+  padding: 4.5rem 2rem;
+  background: var(--green);
+  border-bottom: 2px solid var(--gold);
+  border-top: 2px solid var(--gold);
+}
+
+.excursion-generator-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.excursion-generator-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.excursion-generator-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+}
+
+.excursion-generator-intro {
+  font-size: 0.97rem;
+  color: rgba(242,244,233,0.72);
+  line-height: 1.72;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.excursion-output {
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(184,155,90,0.4);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.excursion-output-text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: var(--ivory);
+  margin: 0;
+  transition: opacity 0.25s;
+}
+
+.excursion-output-text.fading { opacity: 0; }
+
+.excursion-btn {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--gold);
+  border: 1px solid var(--gold-light);
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.excursion-btn:hover { background: var(--gold-light); }
+
+.excursion-btn:focus-visible {
+  outline: 2px solid var(--ivory);
+  outline-offset: 2px;
+}
+
+/* ─── Field Card ─────────────────────────────────────── */
+.field-card-page {
+  background: #f0ede0;
+}
+
+.field-card-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.field-card {
+  background: #faf7ed;
+  border: 1.5px solid var(--gold);
+  padding: 2.25rem 2.5rem;
+  position: relative;
+  font-family: var(--font-body);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+}
+
+.field-card::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(184,155,90,0.3);
+  pointer-events: none;
+}
+
+.field-card-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1.5px solid var(--gold);
+  margin-bottom: 1.75rem;
+}
+
+.field-card-seal {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.field-card-title-block { }
+
+.field-card-institution {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.field-card-doc-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+.field-card-fields-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.field-card-field { }
+
+.field-card-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+
+.field-card-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--charcoal);
+  opacity: 0.3;
+  margin-top: 0.5rem;
+}
+
+.field-card-line + .field-card-line { margin-top: 1.875rem; }
+
+.field-card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+}
+
+.field-card-prompt-group { margin-bottom: 1.25rem; }
+
+.field-card-prompt-heading {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--gold);
+  margin-bottom: 0.875rem;
+}
+
+.field-card-prompt {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.field-card-prompt-line {
+  display: block;
+  height: 1px;
+  background: var(--charcoal);
+  opacity: 0.2;
+  margin: 0.65rem 0;
+}
+
+.field-card-footer {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(184,155,90,0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-card-motto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--gold);
+}
+
+.field-card-ref {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.45;
+}
+
+/* ─── Document Archive ───────────────────────────────── */
+.doc-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.doc-archive-card {
+  border: 1px solid var(--gold);
+  padding: 1.75rem;
+  background: rgba(184, 155, 90, 0.02);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.18s, transform 0.15s;
+  position: relative;
+}
+
+.doc-archive-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(184,155,90,0.2);
+  pointer-events: none;
+}
+
+.doc-archive-card:hover {
+  background: rgba(31,59,46,0.04);
+  transform: translateY(-2px);
+}
+
+.doc-archive-card-num {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.doc-archive-card-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.doc-archive-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--charcoal);
+  opacity: 0.78;
+  flex: 1;
+  margin: 0;
+}
+
+/* ─── About page archival figures ────────────────────── */
+.archival-figure {
+  border: 1px solid var(--gold);
+  padding: 0.5rem;
+  background: white;
+  margin: 2rem 0;
+}
+
+.archival-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(15%) contrast(1.04);
+}
+
+.archival-figure figcaption {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.5;
+  padding: 0.5rem 0.25rem 0.25rem;
+  text-align: center;
+}
+
+.about-aside {
+  float: right;
+  width: clamp(200px, 35%, 300px);
+  margin: 0 0 1.5rem 2rem;
+  clear: right;
+}
+
+@media (max-width: 600px) {
+  .about-aside { float: none; width: 100%; margin: 1.5rem 0; }
+}
+
+/* ─── Responsive: enrichment ─────────────────────────── */
+@media (max-width: 760px) {
+  .featured-note-inner { grid-template-columns: 1fr; }
+  .field-card-body { grid-template-columns: 1fr; }
+  .field-card-fields-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 540px) {
+  .field-card-fields-row { grid-template-columns: 1fr; }
+}
+
+/* ─── Field Card: print ──────────────────────────────── */
+@media print {
+  .field-card-page body { background: white !important; }
+  .field-card-no-print { display: none !important; }
+  .field-card-wrapper { padding: 0; }
+  .field-card { box-shadow: none; border: 1.5px solid #c0a85a; }
+  @page { size: letter portrait; margin: 0.625in; }
+}
+
+
 
 /* ─── Print ──────────────────────────────────────────── */
 @media print {

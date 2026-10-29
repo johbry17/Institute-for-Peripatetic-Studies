@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institutional Archive | Institute for Peripatetic Studies</title>
+  <meta name="description" content="Formal documents, declarations, and official instruments of the Institute for Peripatetic Studies.">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../index.html" class="nav-brand" aria-label="Institute for Peripatetic Studies — Home">
+        <img src="../assets/images/favicon.png" alt="" class="nav-brand-icon" aria-hidden="true">
+        <span class="nav-brand-name">Institute for<br>Peripatetic Studies</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../field-notes/index.html">Field Notes</a></li>
+        <li><a href="../academic-affairs.html">Academic Affairs</a></li>
+        <li><a href="../diploma-generator.html">Diploma Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <header class="page-header">
+      <p class="page-header-eyebrow">Collegium Itinerantium</p>
+      <h1 class="page-header-title">Institutional Archive</h1>
+      <p class="page-header-sub">Formal documents, declarations, and official instruments of the Institute</p>
+    </header>
+
+    <div class="page-content page-content--narrow">
+
+      <p class="lead-text">
+        The following documents constitute the Institute's formal record of its principles,
+        standards, and official positions. They are issued with appropriate seriousness
+        and should be received in the same spirit.
+      </p>
+
+      <div class="doc-archive-grid">
+
+        <a href="charter.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/001</p>
+          <p class="doc-archive-card-title">Founding Charter</p>
+          <p class="doc-archive-card-desc">The constitutive document of the Institute. Establishes its name, mission, principles, governance, and authority to confer ceremonial distinctions. Anno Domini MMXXIV.</p>
+        </a>
+
+        <a href="office-of-peripatetic-standards.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/002</p>
+          <p class="doc-archive-card-title">Office of Peripatetic Standards</p>
+          <p class="doc-archive-card-desc">An instrument establishing what qualifies as a legitimate excursion under the Institute's framework. Addresses intention, observation, deviation, and the status of the useful journey that fails to arrive.</p>
+        </a>
+
+        <a href="position-on-detours.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/003</p>
+          <p class="doc-archive-card-title">The Institute's Official Position on Detours</p>
+          <p class="doc-archive-card-desc">A formal declaration distinguishing the accidental deviation, the deliberate detour, and the route whose value becomes apparent only retrospectively. Issued in the interest of conceptual clarity.</p>
+        </a>
+
+        <a href="regulations-field-observations.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/004</p>
+          <p class="doc-archive-card-title">Regulations Governing the Conduct of Field Observations</p>
+          <p class="doc-archive-card-desc">Five regulations concerning the recording of observations, the distinction between evidence and inference, the acknowledgment of uncertainty, and the documentation of departures from the intended route.</p>
+        </a>
+
+        <a href="notice-of-continuity.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/005</p>
+          <p class="doc-archive-card-title">Notice of Institutional Continuity</p>
+          <p class="doc-archive-card-desc">A formal notice confirming that the Institute remains operational, committed to its mission, and available for the conduct of peripatetic inquiry. Issued in response to no particular inquiry.</p>
+        </a>
+
+        <a href="dps-diploma.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/006</p>
+          <p class="doc-archive-card-title">D.P.S. Diploma — Bryan Johns</p>
+          <p class="doc-archive-card-desc">The founding doctorate of the Institute, conferred upon its Founding Director at the time of establishment. Printable and exportable as PDF or PNG.</p>
+        </a>
+
+        <a href="dps-conferral.html" class="doc-archive-card">
+          <p class="doc-archive-card-num">IPS/DOC/007</p>
+          <p class="doc-archive-card-title">D.P.S. Instrument of Conferral</p>
+          <p class="doc-archive-card-desc">The formal record of the conferral of the Doctor of Peripatetic Studies upon Bryan Johns, Founding Director. A separate institutional record distinct from the diploma itself.</p>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium &nbsp;·&nbsp; <em>Solvitur Ambulando</em></p>
+    <p style="margin-top:0.4rem; font-size:0.75rem;">An independent creative project. All distinctions are self-conferred and entirely non-accredited.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>

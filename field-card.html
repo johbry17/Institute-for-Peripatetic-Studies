@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peripatetic Field Card | Institute for Peripatetic Studies</title>
+  <meta name="description" content="A printable observation sheet for use during a walk, from the Institute for Peripatetic Studies.">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="field-card-page">
+
+  <header class="site-header field-card-no-print">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-brand" aria-label="Institute for Peripatetic Studies — Home">
+        <img src="assets/images/favicon.png" alt="" class="nav-brand-icon" aria-hidden="true">
+        <span class="nav-brand-name">Institute for<br>Peripatetic Studies</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="field-notes/index.html">Field Notes</a></li>
+        <li><a href="academic-affairs.html">Academic Affairs</a></li>
+        <li><a href="diploma-generator.html">Diploma Generator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Screen-only introduction and print controls -->
+    <div class="field-card-no-print" style="background:var(--green); border-bottom:2px solid var(--gold); padding:1.5rem 2rem;">
+      <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <p style="font-family:var(--font-display); font-size:0.62rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Institute for Peripatetic Studies</p>
+          <p style="font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--ivory); letter-spacing:0.05em;">Peripatetic Field Card</p>
+          <p style="font-size:0.88rem; color:rgba(242,244,233,0.65); margin-top:0.25rem; font-style:italic;">Print this page and carry it on your next excursion.</p>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <button onclick="window.print()" class="doc-link" style="cursor:pointer; font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;">
+            &#128438;&nbsp; Print Field Card
+          </button>
+          <a href="documents/regulations-field-observations.html" class="doc-link" style="background:transparent; border-color:rgba(184,155,90,0.5); color:rgba(242,244,233,0.75);">
+            Field Regulations &#8599;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-card-wrapper">
+
+      <div class="field-card">
+
+        <!-- Header -->
+        <div class="field-card-header">
+          <img src="assets/images/favicon.png"
+               alt="Seal of the Institute for Peripatetic Studies"
+               class="field-card-seal">
+          <div class="field-card-title-block">
+            <p class="field-card-institution">Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium</p>
+            <p class="field-card-doc-title">Peripatetic Field Card</p>
+          </div>
+        </div>
+
+        <!-- Meta fields row -->
+        <div class="field-card-fields-row">
+          <div class="field-card-field">
+            <span class="field-card-label">Location / Route</span>
+            <span class="field-card-line"></span>
+            <span class="field-card-line"></span>
+          </div>
+          <div class="field-card-field">
+            <span class="field-card-label">Date</span>
+            <span class="field-card-line"></span>
+          </div>
+          <div class="field-card-field">
+            <span class="field-card-label">Excursion type</span>
+            <span class="field-card-line"></span>
+          </div>
+        </div>
+
+        <!-- Observation prompts -->
+        <div class="field-card-body">
+
+          <!-- Left column -->
+          <div>
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Landscape &amp; Space</p>
+              <p class="field-card-prompt">How is the space organised? What determines where one can and cannot walk?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <p class="field-card-prompt" style="margin-top:0.6rem;">What does the arrangement of paths, walls, and thresholds suggest about how the space was intended to be used?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Sounds &amp; Silences</p>
+              <p class="field-card-prompt">What is audible? What is conspicuously absent?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Boundaries &amp; Transitions</p>
+              <p class="field-card-prompt">Where does one kind of place end and another begin? Is the transition abrupt, gradual, or disputed?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div>
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Historical Traces</p>
+              <p class="field-card-prompt">What evidence of earlier use, alteration, or abandonment is visible? What is difficult to date?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Unexpected Discoveries</p>
+              <p class="field-card-prompt">What was noticed that was not anticipated? What seemed out of place, misplaced, or difficult to explain?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Route &amp; Deviation</p>
+              <p class="field-card-prompt">How did the route actually taken differ from the route intended? What caused the difference?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+
+            <div class="field-card-prompt-group">
+              <p class="field-card-prompt-heading">Unresolved Questions</p>
+              <p class="field-card-prompt">What was not answered? What requires a return visit?</p>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+              <span class="field-card-prompt-line"></span>
+            </div>
+          </div>
+
+        </div><!-- /.field-card-body -->
+
+        <!-- Footer -->
+        <div class="field-card-footer">
+          <span class="field-card-motto"><em>Solvitur Ambulando</em></span>
+          <span class="field-card-ref">IPS/FC/001 &nbsp;·&nbsp; See also: Regulations Governing the Conduct of Field Observations</span>
+        </div>
+
+      </div><!-- /.field-card -->
+
+      <!-- Screen-only notes -->
+      <div class="field-card-no-print" style="margin-top:2.5rem; max-width:680px; margin-left:auto; margin-right:auto; text-align:center;">
+        <p style="font-size:0.9rem; line-height:1.72; color:var(--charcoal); opacity:0.65; font-style:italic;">
+          The Field Card is designed to be printed on standard letter or A4 paper in portrait
+          orientation. It may be carried folded to pocket size. Entries may be made in pencil.
+          The Institute has no objection to using the reverse side for further observations, maps,
+          or anything else that seems relevant at the time.
+        </p>
+        <p style="margin-top:1rem; font-size:0.9rem; color:var(--charcoal); opacity:0.65; font-style:italic;">
+          For the formal framework governing field observations, see the
+          <a href="documents/regulations-field-observations.html" style="color:var(--green);">Regulations Governing the Conduct of Field Observations</a>.
+          For excursion classification, see <a href="academic-affairs.html#classification-heading" style="color:var(--green);">Academic Affairs</a>.
+        </p>
+      </div>
+
+    </div><!-- /.field-card-wrapper -->
+
+  </main>
+
+  <footer class="site-footer field-card-no-print">
+    <p>Institute for Peripatetic Studies &nbsp;·&nbsp; Collegium Itinerantium &nbsp;·&nbsp; <em>Solvitur Ambulando</em></p>
+    <p style="margin-top:0.4rem; font-size:0.75rem;">An independent creative project. All distinctions are self-conferred and entirely non-accredited.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      document.addEventListener('click', e => {
+        if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
