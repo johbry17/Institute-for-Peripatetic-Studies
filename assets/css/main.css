@@ -20,9 +20,15 @@
   --font-body:       'EB Garamond', Georgia, serif;
   --font-script:     'Great Vibes', cursive;
 
-  --nav-height: 3.75rem;
-  --page-max:   1020px;
+  --nav-height:  3.75rem;
+  --page-max:    1020px;
   --page-narrow: 720px;
+
+  /* Shared rhythm tokens */
+  --section-pad: 4.5rem 2rem;
+  --label-fs:    0.65rem;
+  --label-ls:    0.32em;
+  --transition:  0.2s ease;
 }
 
 /* ─── Reset ─────────────────────────────────────────── */
@@ -124,6 +130,14 @@ ul { list-style: none; }
 .nav-links a[aria-current="page"] {
   color: var(--gold);
   background: rgba(255, 255, 255, 0.05);
+}
+
+/* Keyboard focus indicators */
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  color: var(--gold);
 }
 
 .nav-toggle {
@@ -456,16 +470,35 @@ p:last-child { margin-bottom: 0; }
 }
 
 .page-link-card:hover .page-link-title,
-.page-link-card:hover .page-link-icon {
-  color: var(--gold);
+.page-link-card:hover .page-link-icon,
+.page-link-card:hover .page-link-ornament {
+  opacity: 1;
 }
 
+/* Emoji icon (legacy — kept for fallback) */
 .page-link-icon {
   font-size: 1.75rem;
   margin-bottom: 1rem;
   color: var(--gold);
   display: block;
   transition: color 0.22s;
+}
+
+/* Ornament image replaces emoji icon */
+.page-link-ornament {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 1.125rem;
+  display: block;
+  opacity: 0.82;
+  transition: opacity 0.22s;
+  /* Tint ornament images toward the brand palette */
+  filter: sepia(30%) saturate(0.7);
+}
+
+.page-link-card:hover .page-link-ornament {
+  filter: sepia(10%) saturate(1.2) brightness(1.15);
 }
 
 .page-link-title {
@@ -1219,6 +1252,38 @@ p:last-child { margin-bottom: 0; }
   white-space: nowrap; border: 0;
 }
 
+/* Inline body link — used in prose to avoid repeated inline styles */
+.body-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 155, 90, 0.55);
+  text-underline-offset: 2px;
+  transition: text-decoration-color var(--transition);
+}
+.body-link:hover { text-decoration-color: var(--gold); }
+
+/* Ghost doc-link variant (transparent background, green text) */
+.doc-link--ghost {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--gold);
+}
+.doc-link--ghost:hover { background: rgba(31, 59, 46, 0.06); }
+
+/* Footer disclaimer line */
+.site-footer-sub {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+}
+
+/* Focus ring for clickable cards and buttons */
+.doc-link:focus-visible,
+.page-link-card:focus-visible,
+.doc-archive-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .nav-links {
@@ -1310,12 +1375,17 @@ p:last-child { margin-bottom: 0; }
   border-bottom: 1px solid rgba(184, 155, 90, 0.4);
 }
 
+/* Widen to page-max and use two-column grid on desktop */
 .announcements-inner {
-  max-width: var(--page-narrow);
+  max-width: var(--page-max);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
 }
 
 .announcements-header {
+  grid-column: 1 / -1;          /* spans both columns */
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -1334,24 +1404,27 @@ p:last-child { margin-bottom: 0; }
 }
 
 .announcement-item {
-  padding: 1.375rem 0;
+  padding: 1.375rem 0 1.375rem 1rem;
   border-bottom: 1px solid rgba(184, 155, 90, 0.28);
+  border-left: 2px solid rgba(184, 155, 90, 0.35);
+  break-inside: avoid;
 }
 
 .announcement-item:last-child { border-bottom: none; }
 
+/* Fixed: was 0.88rem (smaller than h3's 1rem) — hierarchy now correct */
 .announcement-title {
   font-family: var(--font-display);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--green);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
   line-height: 1.35;
   letter-spacing: 0.02em;
 }
 
 .announcement-body {
-  font-size: 0.97rem;
+  font-size: 0.94rem;
   line-height: 1.72;
   color: var(--charcoal);
   margin: 0;
@@ -1472,6 +1545,12 @@ a.field-note-entry-title:hover { color: var(--gold); }
   letter-spacing: 0.1em;
   color: var(--charcoal);
   opacity: 0.55;
+}
+
+/* When meta follows a details block, restore visual separation */
+.fn-editorial-details + .field-note-entry-meta {
+  margin-top: 0.75rem;
+  display: block;
 }
 
 .field-note-editorial-note {
@@ -1967,15 +2046,47 @@ a.field-note-entry-title:hover { color: var(--gold); }
   clear: right;
 }
 
-@media (max-width: 600px) {
-  .about-aside { float: none; width: 100%; margin: 1.5rem 0; }
+/* Academic Affairs intro aside (not float — uses inline-start margin) */
+.affairs-aside {
+  float: right;
+  width: clamp(220px, 38%, 340px);
+  margin: 0 0 1.5rem 2rem;
+  clear: right;
 }
+
+/* Diploma image in degree-card (replaces misused hero-seal) */
+.diploma-preview-img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 1.5rem auto 0;
+  border: 1px solid rgba(184, 155, 90, 0.35);
+  filter: sepia(10%) contrast(1.02);
+}
+
+/* Unavailable field note title (greyed, non-linked) */
+.fn-unavailable {
+  color: var(--charcoal);
+  opacity: 0.62;
+  cursor: default;
+}
+
+/* .about-aside and .affairs-aside clear to block at 760px — see responsive block above */
 
 /* ─── Responsive: enrichment ─────────────────────────── */
 @media (max-width: 760px) {
   .featured-note-inner { grid-template-columns: 1fr; }
   .field-card-body { grid-template-columns: 1fr; }
   .field-card-fields-row { grid-template-columns: 1fr 1fr; }
+  /* Clear floats to prevent narrow text columns at mid widths */
+  .about-aside,
+  .affairs-aside { float: none; width: 100%; margin: 1.5rem 0; }
+}
+
+@media (max-width: 680px) {
+  /* Announcements drop to single column */
+  .announcements-inner { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 540px) {
@@ -1986,9 +2097,9 @@ a.field-note-entry-title:hover { color: var(--gold); }
 @media print {
   .field-card-page body { background: white !important; }
   .field-card-no-print { display: none !important; }
-  .field-card-wrapper { padding: 0; }
+  /* Use the named page so the 0.625in margin isn't clobbered by @page {margin:0} below */
+  .field-card-wrapper { padding: 0; page: field-card-page; }
   .field-card { box-shadow: none; border: 1.5px solid #c0a85a; }
-  @page { size: letter portrait; margin: 0.625in; }
 }
 
 
@@ -2080,5 +2191,17 @@ a.field-note-entry-title:hover { color: var(--gold); }
 }
 
 @page           { margin: 0; }
-@page diploma-page { size: letter landscape; }
-@page letter-page  { size: letter portrait;  }
+@page diploma-page    { size: letter landscape; }
+@page letter-page     { size: letter portrait;  }
+/* Field card uses its own named page so @page{margin:0} above doesn't clobber it */
+@page field-card-page { size: letter portrait; margin: 0.625in; }
+
+/* ─── Reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* Keep the excursion text visible; no fade effect */
+  .excursion-output-text.fading { opacity: 1 !important; }
+}
